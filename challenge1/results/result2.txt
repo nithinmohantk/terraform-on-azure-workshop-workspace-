@@ -1,0 +1,190 @@
+nithi@THINGXSTUDIO /d/Workspace/Terraform/terraform-on-azure-workshop/challenge1/terraform (master)
+λ terraform apply
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # azurerm_app_service.main will be created
+  + resource "azurerm_app_service" "main" {
+      + app_service_plan_id            = (known after apply)
+      + app_settings                   = {
+          + "ApiUrl"                       = ""
+          + "ApiUrlShoppingCart"           = ""
+          + "MongoConnectionString"        = ""
+          + "Personalizer__ApiKey"         = ""
+          + "Personalizer__Endpoint"       = ""
+          + "SqlConnectionString"          = ""
+          + "WEBSITE_NODE_DEFAULT_VERSION" = "10.15.2"
+          + "productImagesUrl"             = "https://raw.githubusercontent.com/microsoft/TailwindTraders-Backend/master/Deploy/tailwindtraders-images/product-detail"
+        }
+      + client_affinity_enabled        = (known after apply)
+      + default_site_hostname          = (known after apply)
+      + enabled                        = true
+      + https_only                     = false
+      + id                             = (known after apply)
+      + location                       = "westeurope"
+      + name                           = "mytoa-appservice"
+      + outbound_ip_addresses          = (known after apply)
+      + possible_outbound_ip_addresses = (known after apply)
+      + resource_group_name            = "mytoa-resources"
+      + site_credential                = (known after apply)
+      + source_control                 = (known after apply)
+
+      + auth_settings {
+          + additional_login_params        = (known after apply)
+          + allowed_external_redirect_urls = (known after apply)
+          + default_provider               = (known after apply)
+          + enabled                        = (known after apply)
+          + issuer                         = (known after apply)
+          + runtime_version                = (known after apply)
+          + token_refresh_extension_hours  = (known after apply)
+          + token_store_enabled            = (known after apply)
+          + unauthenticated_client_action  = (known after apply)
+
+          + active_directory {
+              + allowed_audiences = (known after apply)
+              + client_id         = (known after apply)
+              + client_secret     = (sensitive value)
+            }
+
+          + facebook {
+              + app_id       = (known after apply)
+              + app_secret   = (sensitive value)
+              + oauth_scopes = (known after apply)
+            }
+
+          + google {
+              + client_id     = (known after apply)
+              + client_secret = (sensitive value)
+              + oauth_scopes  = (known after apply)
+            }
+
+          + microsoft {
+              + client_id     = (known after apply)
+              + client_secret = (sensitive value)
+              + oauth_scopes  = (known after apply)
+            }
+
+          + twitter {
+              + consumer_key    = (known after apply)
+              + consumer_secret = (sensitive value)
+            }
+        }
+
+      + connection_string {
+          + name  = (known after apply)
+          + type  = (known after apply)
+          + value = (sensitive value)
+        }
+
+      + identity {
+          + identity_ids = (known after apply)
+          + principal_id = (known after apply)
+          + tenant_id    = (known after apply)
+          + type         = (known after apply)
+        }
+
+      + logs {
+          + application_logs {
+              + azure_blob_storage {
+                  + level             = (known after apply)
+                  + retention_in_days = (known after apply)
+                  + sas_url           = (sensitive value)
+                }
+            }
+
+          + http_logs {
+              + azure_blob_storage {
+                  + retention_in_days = (known after apply)
+                  + sas_url           = (sensitive value)
+                }
+
+              + file_system {
+                  + retention_in_days = (known after apply)
+                  + retention_in_mb   = (known after apply)
+                }
+            }
+        }
+
+      + site_config {
+          + always_on                = true
+          + default_documents        = [
+              + "Default.htm",
+              + "Default.html",
+              + "hostingstart.html",
+            ]
+          + dotnet_framework_version = "v4.0"
+          + ftps_state               = (known after apply)
+          + http2_enabled            = false
+          + ip_restriction           = (known after apply)
+          + linux_fx_version         = (known after apply)
+          + local_mysql_enabled      = (known after apply)
+          + managed_pipeline_mode    = (known after apply)
+          + min_tls_version          = (known after apply)
+          + remote_debugging_enabled = false
+          + remote_debugging_version = (known after apply)
+          + scm_type                 = "None"
+          + websockets_enabled       = (known after apply)
+          + windows_fx_version       = (known after apply)
+
+          + cors {
+              + allowed_origins     = (known after apply)
+              + support_credentials = (known after apply)
+            }
+        }
+
+      + storage_account {
+          + access_key   = (sensitive value)
+          + account_name = (known after apply)
+          + mount_path   = (known after apply)
+          + name         = (known after apply)
+          + share_name   = (known after apply)
+          + type         = (known after apply)
+        }
+    }
+
+  # azurerm_app_service_plan.main will be created
+  + resource "azurerm_app_service_plan" "main" {
+      + id                           = (known after apply)
+      + kind                         = "Windows"
+      + location                     = "westeurope"
+      + maximum_elastic_worker_count = (known after apply)
+      + maximum_number_of_workers    = (known after apply)
+      + name                         = "mytoa-asp"
+      + resource_group_name          = "mytoa-resources"
+
+      + sku {
+          + capacity = (known after apply)
+          + size     = "S1"
+          + tier     = "Standard"
+        }
+    }
+
+  # azurerm_resource_group.main will be created
+  + resource "azurerm_resource_group" "main" {
+      + id       = (known after apply)
+      + location = "westeurope"
+      + name     = "mytoa-resources"
+    }
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+azurerm_resource_group.main: Creating...
+azurerm_resource_group.main: Creation complete after 0s [id=/subscriptions/f6b4ae2b-1c5e-4530-9de0-2669440f07e5/resourceGroups/mytoa-resources]
+azurerm_app_service_plan.main: Creating...
+azurerm_app_service_plan.main: Creation complete after 7s [id=/subscriptions/f6b4ae2b-1c5e-4530-9de0-2669440f07e5/resourceGroups/mytoa-resources/providers/Microsoft.Web/serverfarms/mytoa-asp]
+azurerm_app_service.main: Creating...
+azurerm_app_service.main: Still creating... [10s elapsed]
+azurerm_app_service.main: Still creating... [20s elapsed]
+azurerm_app_service.main: Creation complete after 30s [id=/subscriptions/f6b4ae2b-1c5e-4530-9de0-2669440f07e5/resourceGroups/mytoa-resources/providers/Microsoft.Web/sites/mytoa-appservice]
+
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
