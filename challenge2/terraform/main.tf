@@ -1,3 +1,7 @@
+# Terraform On Azure :: Challenge 2   (*HashiCorp Digital 2020*)
+# 22/06/2020
+# Deploy sample app Azure App Services in a standalone manner and db instances on Azure SQL and Azure Container instances.
+
 # Configure the AzureRM provider (using v2.1)
 provider "azurerm" {
   version         = "~>2.14.0"
