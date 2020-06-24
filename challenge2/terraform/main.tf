@@ -34,12 +34,17 @@ resource "azurerm_app_service" "main" {
   site_config {
     always_on = true
     scm_type  = "ExternalGit"
+    //scm_type  = "LocalGit"
     default_documents = [
       "Default.htm",
       "Default.html",
       "hostingstart.html"
     ]
   }
+  
+#   provisioner "local-exec" {
+#    command = "git remote set-url azure ${var.repo_url} && git pull && git push azure master"
+#   }
 
   app_settings = {
     "WEBSITE_NODE_DEFAULT_VERSION" = "10.15.2"
@@ -52,6 +57,13 @@ resource "azurerm_app_service" "main" {
     "Personalizer_Endpoint"       = ""
   }
 }
+
+# resource "azurerm_app_service_source_control" "main" {
+#   app_service_id        = "${azurerm_app_service.main.id}"
+#   repo_url              = "https://github.com/nithinmohantk/AzureEats-Website.git"
+#   is_manual_integration = true
+#   branch                = "master"
+# }
 
 resource "null_resource" "appserviceci" {
   triggers = {

@@ -1,6 +1,6 @@
 variable "prefix" {
   description = "The prefix used for all resources in this example"
-  default     = "mytoa1"
+  default     = "mytoa3"
 }
 
 variable "location" {
