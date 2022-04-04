@@ -30,7 +30,7 @@ resource "azurerm_app_service_plan" "main" {
 
 # Provision the Azure App Service to host the main web site
 resource "azurerm_app_service" "main" {
-    name                = "${var.prefix}-appservice"
+  name                = "${var.prefix}-appservice"
     location            = azurerm_resource_group.main.location
     resource_group_name = azurerm_resource_group.main.name
     app_service_plan_id = azurerm_app_service_plan.main.id
@@ -54,4 +54,5 @@ resource "azurerm_app_service" "main" {
         "Personalizer__ApiKey"          = ""
         "Personalizer__Endpoint"        = ""
     }
+  https_only = true
 }
