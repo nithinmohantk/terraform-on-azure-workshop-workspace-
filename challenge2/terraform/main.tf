@@ -60,6 +60,7 @@ resource "azurerm_app_service" "main" {
     "Personalizer_ApiKey"         = ""
     "Personalizer_Endpoint"       = ""
   }
+  https_only = true
 }
 
 # resource "azurerm_app_service_source_control" "main" {
